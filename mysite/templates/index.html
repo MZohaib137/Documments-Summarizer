@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents Summarization</title>
+    <link rel='stylesheet' href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="title">Documents Summarization</div>
+    <form action="{% url 'fileapp:uploads' %}" method="POST" enctype="multipart/form-data"
+       class="headsum">
+        <input type="text" name="filename"  placeholder="Enter Your Name" class="name" >
+        <input type="file" multiple name="uploadfiles" accept="application/pdf" class="file" >
+        {% csrf_token %}
+         <button type="submit" class="btn">File Upload</button> 
+
+    </form>
+    <div class="text">{{text1}} {{lengthsum}}</div>
+    <div class="text">{{text2}} {{totaltext}}</div>
+    <div class="text">{{text3}} {{ae}}</div>
+    <section>
+        <div class="sum">{{Summ}}</div>
+        <div class="summary">
+            <p>{{a}}</p>
+        </div>
+    </section>
+    
+
+</body>
+</html>
